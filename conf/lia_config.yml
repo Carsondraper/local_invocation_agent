@@ -1,0 +1,19 @@
+# The Configuration file for the LIA
+# Keep in mind that changing any of the option values to an incorrect value will result in the LIA using the default value for the respective option
+# More info on this config file can be found in the docs directory
+LOCAL:
+  # The machine this file is on. Host must either be FQDN or IP Addr
+  HOST: localhost
+  # The port you would like the LIA to run, and listen for requests for the Backend on
+  PORT: 7331
+API:
+  # The host that has the Automated health check api running
+  API_HOST: localhost
+  # The port that the api is on
+  API_PORT: 1337
+  # HTTPS Enabled or disabled. Valid settings for this option would be True, and False
+  HTTPS: False
+
+
+
+

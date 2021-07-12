@@ -1,0 +1,11 @@
+# The config file for logging configuration.
+LOGGER:
+  # You can use a relative file path or a absolute file path (Both D:\log\lia\ and ../../logs work!)
+  DIRECTORY: ../log
+  # The FILENAMEPREFIX is the log's prefix prior to the log file name (ie. a value of LIA would generate log files with
+  # LIA_07_07_2000_01_35_00.log)
+  FILENAMEPREFIX: LIA
+  # LEVEL options are INFO | DEBUG | ERROR | FATAL | WARNING
+  # INFO is recommended as DEBUG Logs are very hard to read
+  LEVEL: INFO
+

@@ -1,0 +1,32 @@
+2021-07-11_23:56:17 root         INFO     ../conf/lia_logger_config.yml has been opened
+2021-07-11_23:56:17 root         INFO     yaml config dictionary has been made
+2021-07-11_23:56:17 root         INFO     ../conf/lia_logger_config.yml has been closed
+2021-07-11_23:56:17 root         INFO     Logging Directory ../log exists
+2021-07-11_23:56:17 root         INFO     Absolute Path of ../log is C:\Users\Carson\PycharmProjects\local_invocation_agent\log
+2021-07-11_23:56:17 root         INFO     FILENAMEPREFIX has been set to LIA
+2021-07-11_23:56:17 root         INFO     Log Level configuration is set to INFO
+2021-07-11_23:56:17 root         INFO     Logging Configuration parse complete
+2021-07-11_23:56:17 root         INFO     ../conf/lia_config.yml has been opened
+2021-07-11_23:56:17 root         INFO     yaml config dictionary has been made
+2021-07-11_23:56:17 root         INFO     ../conf/lia_config.yml has been closed
+2021-07-11_23:56:17 root         INFO     The host to run the LIA is configured with a value of localhost
+2021-07-11_23:56:17 root         INFO     The port the LIA is configured to run on is 7331
+2021-07-11_23:56:17 root         INFO     The host that the api is configured to be on is localhost
+2021-07-11_23:56:17 root         INFO     The port that the api is configured to be on is 1337
+2021-07-11_23:56:17 root         INFO     The API HTTPS configuration option is False
+2021-07-11_23:56:17 root         INFO     Configuration parse for the LOCAL and API Section is complete
+2021-07-11_23:56:17 root         INFO     Class instance variable local_host_addr has been set to localhost
+2021-07-11_23:56:17 root         INFO     Class instance variable local_host_port has been set to 7331
+2021-07-11_23:56:17 root         INFO     Class instance variable api_host_addr has been set to localhost
+2021-07-11_23:56:17 root         INFO     Class instance variable api_port has been set to 1337
+2021-07-11_23:56:17 root         INFO     Class instance variable https has been set to False
+2021-07-11_23:56:17 root         INFO     Starting server on localhost:7331
+2021-07-12_00:07:30 root         INFO     [New Connection] ('127.0.0.1', 52027) connected
+2021-07-12_00:07:30 root         INFO     [Active Connections] 1
+2021-07-12_00:07:30 root         INFO     [('127.0.0.1', 52027)] Hello World
+2021-07-12_00:07:30 root         INFO     Message Received...
+2021-07-12_00:07:48 root         INFO     BYE was received.
+2021-07-12_00:07:48 root         INFO     [Disconnecting Connection]
+2021-07-12_00:07:48 root         INFO     [('127.0.0.1', 52027)] BYE
+2021-07-12_00:07:48 root         INFO     Message Received...
+2021-07-12_00:07:48 root         INFO     [Active Connections] 1
