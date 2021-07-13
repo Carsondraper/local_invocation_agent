@@ -1,49 +1,42 @@
 import logging
-import socket
-import threading
+import asyncio
+
 header = 1024
 msg_format = 'utf-8'
 disconnect_message = "BYE"
-server_instance = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
-def handle_client(conn, addr):
-    """ The Function that handles all the connections """
-    logging.info(f'[New Connection] {addr} connected')
-
-    connected = True
-    while connected:
-        msg_length = conn.recv(header).decode(msg_format)
-        if msg_length:
-            msg_length = int(msg_length)
-            msg = conn.recv(msg_length).decode(msg_format)
-            if msg == disconnect_message:
-                logging.info(f'{disconnect_message} was received.')
-                logging.info(f'[Disconnecting Connection]')
-                connected = False
-            logging.info(f'[{addr}] {msg}')
-            conn.send("Message Received".encode(msg_format))
-            logging.info(f'Message Received...')
-    conn.close()
-    logging.info(f'[Active Connections] {threading.activeCount() - 1}')
+async def handle_client(reader, writer):
+    request = None
+    while request != disconnect_message:
+        request = (await reader.read()).decode(msg_format)
+        logging.info(f'[Message Received] {request}')
+        response = str(request)
+        writer.write(response.encode(msg_format))
+        await writer.drain()
+    writer.close()
 
 
-class Serv:
+class LiaServer:
     def __init__(self, cfg_dict):
         self.server = cfg_dict["local_host_addr"]
         self.port = cfg_dict["local_host_port"]
         self.address = (self.server, self.port)
-        server_instance.bind(self.address)
+        logging.info(f'LiaServer Class object has been created with values of {self.server}:{self.port}')
 
-    async def start_server(self):
-        """
-        Function used to start the socket server
-        """
-        logging.info(f'Starting server on {self.server}:{self.port}')
-        server_instance.listen()
-        # Looping
-        while True:
-            conn, addr = server_instance.accept()
-            thread = threading.Thread(target=handle_client, args=(conn, addr))
-            thread.start()
-            logging.info(f'[Active Connections] {threading.activeCount() - 1}')
+    async def run_server(self):
+        logging.info(f'[Server Start] Attempting to start the server now')
+        self.server_instance = await asyncio.start_server(handle_client, self.server, self.port)
+        async with self.server_instance:
+            logging.info(f'[Server Start] Server is now LISTENING on {self.server}:{self.port}')
+            await self.server_instance.serve_forever()
+
+    def stop_server(self):
+        logging.info(f'[Server Stop] Attempting to stop the server now')
+        pass
+
+
+if __name__ == "__main__":
+    print(f'Lia_server.py is not supposed to be started as __main__. '
+          f'Please refer to the docs for more information')
+    exit(1)

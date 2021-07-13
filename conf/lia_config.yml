@@ -5,7 +5,7 @@ LOCAL:
   # The machine this file is on. Host must either be FQDN or IP Addr
   HOST: localhost
   # The port you would like the LIA to run, and listen for requests for the Backend on
-  PORT: 7331
+  PORT: 1338
 API:
   # The host that has the Automated health check api running
   API_HOST: localhost
